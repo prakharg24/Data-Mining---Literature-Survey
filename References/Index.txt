@@ -3,3 +3,4 @@ a43-xie.pdf -- Overlapping Community Detection in Networks: The State-of-the-Art
 p631-leskovec.pdf -- Empirical Comparison of Algorithms for Network Community Detection
 83530503b52f4dc481357f14725a10f06b21.pdf -- Influential Community Search in Large Networks
 p939-sozio.pdf -- The Community-search Problem and How to Plan a Successful Cocktail Party
+p277-cui.pdf -- Online Search of Overlapping Communities
