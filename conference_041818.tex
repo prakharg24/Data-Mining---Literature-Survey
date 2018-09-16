@@ -1,0 +1,65 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[noend]{algpseudocode}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = black %Colour of citations
+}
+\begin{document}
+
+\pagestyle{plain}
+
+\title{COL 761 : Data Mining \\ Literature Survey on Finding Influential Communities in Large Scale Networks}
+
+\author{\IEEEauthorblockN{Prakhar Ganesh}
+\IEEEauthorblockA{2015CS10245}
+\and
+\IEEEauthorblockN{Rahul Agarwal}
+\IEEEauthorblockA{2015CS10247}
+\and
+\IEEEauthorblockN{Saket Dingliwal}
+\IEEEauthorblockA{2015CS10254}
+}
+
+\maketitle
+
+\begin{abstract}
+
+Community or modular structure is considered to be a significant property of large scale real-world graphs such as large social or information networks. Detecting influential clusters or communities in these graphs is a problem of considerable interest as it often accounts for the functionality of the system. We aim to provide a thorough exposition of the topic, including the main elements of the problem, a brief introduction of the existing research for both \textit{disjoint} and \textit{overlapping} community search, the idea of influential communities, its implications and current state of the art and finally provide some insight on possible directions for future research.
+
+
+
+\end{abstract}
+
+\section{Introduction}
+
+Many large scale real-world networks like social networks consist of community structures. Disciplines where systems are often represented as graphs, such as sociology, biology and computer science contain examples of such large scale networks and the community structures present in them \cite{Li:2015:ICS:2735479.2735484}. Discovering communities
+in a network is a fundamental problem, which has attracted much attention in recent years \cite{FORTUNATO201075, Xie:2013:OCD:2501654.2501657}. A similar yet different problem is community search where the goal is to find the most likely community that contains the query node \cite{Sozio:2010:CPP:1835804.1835923, Cui:2013:OSO:2463676.2463722}. The main difference between these two problems is that the community discovery problem is to identify all communities in a network which follow a certain criteria \cite{FORTUNATO201075}, while the community search problem is a query-dependent variant of the community discovery problem, which aims to find the community that contains the query node \cite{Sozio:2010:CPP:1835804.1835923}.
+
+
+\section{Motivation}
+
+\section{Problem Statement}
+
+\section{Algorithms}
+
+\section{Comparison and Results}
+
+\section{Conclusion and Future Work}
+
+
+\bibliographystyle{unsrt}
+\bibliography{IEEEreferences.bib}
+
+
+\end{document}
