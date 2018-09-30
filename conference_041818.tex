@@ -19,7 +19,9 @@
 
 \pagestyle{plain}
 
-\title{COL 761 : Data Mining \\ Literature Survey on Finding Influential Communities in Large Scale Networks}
+\title{
+% COL 761 : Data Mining \\ 
+Literature Survey on Finding Influential Communities in Large Scale Networks}
 
 \author{\IEEEauthorblockN{Prakhar Ganesh}
 \IEEEauthorblockA{2015CS10245}
@@ -35,27 +37,46 @@
 
 \begin{abstract}
 
-Community or modular structure is considered to be a significant property of large scale real-world graphs such as large social or information networks. Detecting influential clusters or communities in these graphs is a problem of considerable interest as it often accounts for the functionality of the system. We aim to provide a thorough exposition of the topic, including the main elements of the problem, a brief introduction of the existing research for both \textit{disjoint} and \textit{overlapping} community search, the idea of influential communities, its implications and current state of the art and finally provide some insight on possible directions for future research.
-
-
+Community or modular structure is considered to be a significant property of large scale real-world graphs such as social or information networks. Detecting influential clusters or communities in these graphs is a problem of considerable interest as it often accounts for the functionality of the system. We aim to provide a thorough exposition of the topic, including the main elements of the problem, a brief introduction of the existing research for both \textit{disjoint} and \textit{overlapping} community search, the idea of influential communities, its implications and current state of the art and finally provide some insight on possible directions for future research.
 
 \end{abstract}
 
 \section{Introduction}
 
-Many large scale real-world networks like social networks consist of community structures. Disciplines where systems are often represented as graphs, such as sociology, biology and computer science contain examples of such large scale networks and the community structures present in them \cite{Li:2015:ICS:2735479.2735484}. Discovering communities
-in a network is a fundamental problem, which has attracted much attention in recent years \cite{FORTUNATO201075, Xie:2013:OCD:2501654.2501657}. A similar yet different problem is community search where the goal is to find the most likely community that contains the query node \cite{Sozio:2010:CPP:1835804.1835923, Cui:2013:OSO:2463676.2463722}. The main difference between these two problems is that the community discovery problem is to identify all communities in a network which follow a certain criteria \cite{FORTUNATO201075}, while the community search problem is a query-dependent variant of the community discovery problem, which aims to find the community that contains the query node \cite{Sozio:2010:CPP:1835804.1835923}.
+Many large scale real-world networks like social networks consist of community structures. Disciplines where systems are often represented as graphs, such as sociology, biology and computer science contain examples of such large scale networks and community structures present in them \cite{Li:2015:ICS:2735479.2735484}. The problem of discovering communities in a large scale network is a problem which has attracted much attention in recent years \cite{FORTUNATO201075, Xie:2013:OCD:2501654.2501657}. A similar problem is community search where the goal is to find the most likely community that contains an input query node \cite{Sozio:2010:CPP:1835804.1835923, Cui:2013:OSO:2463676.2463722}. The community discovery problem is focused on identifying all communities present in a network \cite{FORTUNATO201075}. On the other hand, the community search problem is a query-dependent variant of the community discovery problem, which aims to find the community that contains the query node \cite{Sozio:2010:CPP:1835804.1835923}.
 
+An important aspect of communities, which is ignored by the older community detection algorithms, and have been very recently introduced in these field is the influence of a community \cite{Li:2015:ICS:2735479.2735484}. Finding the 'r' most influential communities in a network has widespread applications and has fueled a lot of recent research in this area. The common approaches used in this field includes index based search \cite{Li:2015:ICS:2735479.2735484}, heuristics based on common graph structures like cliques \cite{unknown}, k-cores \cite{Li:2017:FIC:3159176.3159197}, multi-values graphs \cite{Li:2018:SCS:3183713.3183736}, online searches, both global \cite{Li:2015:ICS:2735479.2735484} and local \cite{Bi:2018:OPA:3213880.3232249} and introduction of novel data structures \cite{Li:2017:FIC:3159176.3159197} among many others. We try to cover them all and also provide a quantitative, as well as a qualitative, comparison between the two, along with directions for future research.
 
 \section{Motivation}
 
+The problem of community search over very large graphs is a fundamental problem is graph analysis. However certain applications require us to find the 'r' most influential communities in the graph. Consider the following examples as described in Bi et al. \cite{Bi:2018:OPA:3213880.3232249}. Assume that Alice is a database researcher. She may want to identify the most influential research groups from the co-authorship network of the database community, so as to be aware of the recent trends of database research from those influential groups. Another frequently encountered example is in online social network domain. Suppose that Bob is an online social network user. He may want to follow the most influential groups in the social network, so as to track the recent activities from those influential groups. 
+
+Both of these issues are common in the sense that they need to find communities in a graph with an additional property of having high influence. A possible definition of influence value can be defining it as the minimum weight of the nodes in that community \cite{Li:2015:ICS:2735479.2735484}. An influential community is the one which has a large influence value, which in this case would mean every member of the community is highly influential (since we are taking the minimum).
+
+There has been a sudden outburst of different techniques in this field in the last few years, both in terms of new heuristics in the detection of most influential communities and in terms of speeding up the search algorithms. We aim to provide a thorough survey of the current progress as an entry point for future researchers and insights on possible future research directions.
+
 \section{Problem Statement}
 
-\section{Algorithms}
+Consider a Graph \begin{math}G(V,E)\end{math} where \textit{V} is the set of vertices and \textit{E} is the set of edges. Let \begin{math}d(v,G)\end{math} be defined as the degree of vertex \textit{v} in graph \textit{G} i.e number of edges coming out of \textit{v}. A graph \begin{math}H(V_h,E_h)\end{math} is defined as an induced subgraph of \textit{G} if \begin{math}V_h \subseteq V \end{math} and \begin{math}E_h = \{ (u,v) : u,v \in V_h, (u,v) \in E \}.\end{math} A k-core is an induced subgraph where the degree of each node is atleast k ( \begin{math}d(v,H) \geq k\end{math}). A maximal k-core is a k-core which is not a subset of any other k-core. Clearly, every graph will have a unique maximal k-core for every values of 'k'.
 
-\section{Comparison and Results}
+To introduce the concept of influence we assign a weight to each node which can be interpreted as its influence (such as PageRank, h-index etc). A weight vector of a Graph is the set of all weights assigned to the nodes.
 
-\section{Conclusion and Future Work}
+Given a graph \begin{math}G(V,E)\end{math} and an induced graph \begin{math}H(V_h,E_h)\end{math}, we define a function to compute the influence of this induced subgraph. One possible definition, as discussed earlier, could be taking the minimum weight present in the induced subgraph. The intuition behind it is that an induced subgraph is as influential as its least influential member \cite{Li:2015:ICS:2735479.2735484}. Another way could be taking the average of all the weights present in the subgraph or even a more complex function can be defined.
+
+A k-influential community \cite{Li:2015:ICS:2735479.2735484} is an induced subgraph \begin{math}H_k = (V_k,E_k)\end{math} of \textit{G} that :-
+\begin{enumerate}
+\item Is connected
+\item Each node has degree atleast k
+\item Is maximal
+\end{enumerate}
+
+\textbf{Problem :} Given a graph \begin{math}G = (V, E)\end{math}, a weight vector \textit{W}, and two parameters \textit{k} and \textit{r}, the problem is to find the top-r k-influential communities with the highest influence value. \cite{Li:2015:ICS:2735479.2735484}
+
+% \section{Algorithms}
+
+% \section{Comparison and Results}
+
+% \section{Conclusion and Future Work}
 
 
 \bibliographystyle{unsrt}
