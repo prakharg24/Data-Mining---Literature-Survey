@@ -4,3 +4,7 @@ p631-leskovec.pdf -- Empirical Comparison of Algorithms for Network Community De
 83530503b52f4dc481357f14725a10f06b21.pdf -- Influential Community Search in Large Networks
 p939-sozio.pdf -- The Community-search Problem and How to Plan a Successful Cocktail Party
 p277-cui.pdf -- Online Search of Overlapping Communities
+07930032.pdf -- Most Influential Community Search over Large Social Networks
+778_2017_Article_467.pdf -- Finding influential communities in massive networks
+p1056-bi.pdf -- An Optimal and Progressive Approach to Online Search of Top-K Influential Communities
+p457-li.pdf -- Skyline Community Search in Multi-valued Networks
